@@ -4,11 +4,9 @@
   <p><strong>Fast, resumable, zero-dependency Manifest V3 Chrome extension for exporting Perlego books to EPUB 3, GitHub-Flavored Markdown, and standalone HTML5.</strong></p>
 
   <p>
-    <a href="https://github.com/iamMortazavi/perlego-book-exporter/actions/workflows/ci.yml">
-      <img src="https://github.com/iamMortazavi/perlego-book-exporter/actions/workflows/ci.yml/badge.svg" alt="CI status" />
-    </a>
     <img src="https://img.shields.io/badge/manifest-v3-2f81f7" alt="Manifest V3" />
     <img src="https://img.shields.io/badge/version-4.1.0-1a7f37" alt="Version 4.1.0" />
+    <img src="https://img.shields.io/badge/node-%3E%3D18-339933" alt="Node 18+" />
     <img src="https://img.shields.io/badge/dependencies-zero-6e7781" alt="Zero Dependencies" />
     <a href="LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" />
