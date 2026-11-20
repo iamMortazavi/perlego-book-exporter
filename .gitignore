@@ -1,0 +1,22 @@
+# OS & editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build & release artifacts
+dist/
+*.zip
+*.crx
+*.pem
+
+# Dependencies & logs
+node_modules/
+npm-debug.log*
+*.log
+
+# Environment files
+.env
+.env.*

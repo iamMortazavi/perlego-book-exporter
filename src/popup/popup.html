@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Perlego Book Exporter Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="../../assets/icons/icon-48.png" width="24" height="24" alt="" class="logo">
+      <div class="brand-text">
+        <h1>Perlego Exporter Pro <span class="version-tag">v4.1</span></h1>
+        <span id="bookTitle" class="book-title">Checking current tab...</span>
+      </div>
+    </div>
+    <span id="readerBadge" class="badge">...</span>
+  </header>
+
+  <div class="tablist" role="tablist" focusgroup="tablist nomemory" aria-label="Exporter views">
+    <button type="button" role="tab" id="tab-capture" class="tab-btn" aria-selected="true" focusgroupstart>
+      Capture &amp; Export
+    </button>
+    <button type="button" role="tab" id="tab-library" class="tab-btn" aria-selected="false">
+      Library <span id="libraryCountBadge" class="tab-count">0</span>
+    </button>
+  </div>
+
+  <main class="main">
+    <div id="panel-capture" role="tabpanel" aria-labelledby="tab-capture">
+      <div class="panel-content">
+        <section class="card">
+          <h2 class="section-title">Output Formats</h2>
+          <div class="format-grid">
+            <label class="check-pill">
+              <input type="checkbox" id="fmtEpub" value="epub" checked>
+              <span>EPUB 3 <small>.epub</small></span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" id="fmtMarkdown" value="markdown">
+              <span>Markdown <small>.md</small></span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" id="fmtHtml" value="html">
+              <span>HTML5 <small>.html</small></span>
+            </label>
+          </div>
+          <label class="option-row">
+            <input type="checkbox" id="inlineHtmlImages">
+            <span>Embed offline images inside HTML</span>
+          </label>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">Capture Settings</h2>
+          <div class="settings-grid">
+            <label class="field">
+              <span>Book Mode</span>
+              <select id="captureMode">
+                <option value="auto">Auto-Detect</option>
+                <option value="epub">ePUB Chapters</option>
+                <option value="pdf">PDF Pages</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Speed</span>
+              <select id="captureSpeed">
+                <option value="turbo">Turbo (Fastest)</option>
+                <option value="balanced" selected>Balanced</option>
+                <option value="safe">Safe (Slow net)</option>
+              </select>
+            </label>
+          </div>
+          <div class="range-grid">
+            <label class="field">
+              <span>From section</span>
+              <input type="number" id="rangeStart" min="1" placeholder="All" inputmode="numeric">
+            </label>
+            <label class="field">
+              <span>To section</span>
+              <input type="number" id="rangeEnd" min="1" placeholder="End" inputmode="numeric">
+            </label>
+          </div>
+          <label class="option-row">
+            <input type="checkbox" id="autoScroll" checked>
+            <span>Auto-scroll PDF pages</span>
+          </label>
+        </section>
+
+        <section class="card progress-card">
+          <div class="progress-header">
+            <span id="phaseLabel" class="phase-label">Ready</span>
+            <span id="progressMeta" class="progress-meta">0%</span>
+          </div>
+          <progress id="progressBar" max="100" value="0" aria-label="Capture and export progress"></progress>
+          <div id="statusText" class="status-text" role="status" aria-live="polite">
+            Open a book on ereader.perlego.com to begin.
+          </div>
+          <div id="skippedNote" class="warn-note" hidden></div>
+        </section>
+
+        <div class="actions">
+          <div class="primary-row">
+            <button type="button" id="primaryBtn" class="btn btn-primary">Start Capture &amp; Export</button>
+            <button type="button" id="stopBtn" class="btn btn-danger" hidden>Stop</button>
+          </div>
+          <div class="secondary-row">
+            <button type="button" id="exportCachedBtn" class="btn btn-secondary" disabled>
+              Export Cached (0)
+            </button>
+            <button type="button" id="copyLogsBtn" class="btn btn-ghost" title="Copy diagnostic logs from the active reader tab">
+              Copy Logs
+            </button>
+            <button type="button" id="clearCacheBtn" class="btn btn-ghost">
+              Clear Cache
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-library" role="tabpanel" aria-labelledby="tab-library" hidden>
+      <div class="panel-content">
+        <section class="card">
+          <div class="library-top">
+            <h2 class="section-title">Cached Books</h2>
+            <span id="storageSummary" class="storage-meta">—</span>
+          </div>
+          <div id="libraryList" class="library-list">
+            <p class="empty-state">Open a Perlego tab to view cached books.</p>
+          </div>
+          <div class="library-footer">
+            <button type="button" id="refreshLibraryBtn" class="btn btn-ghost">Refresh</button>
+            <button type="button" id="clearAllBooksBtn" class="btn btn-ghost">Clear All Books</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

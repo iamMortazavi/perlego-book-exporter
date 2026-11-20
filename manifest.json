@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Perlego Book Exporter Pro",
+  "version": "4.1.0",
+  "description": "Fast, resumable Perlego book exporter with offline EPUB 3 (MathML, nested TOC, RTL), Markdown, print-ready HTML5, and cached library manager.",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "Perlego Book Exporter Pro",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "scripting",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.perlego.com/*",
+    "https://*.cloudfront.net/*"
+  ]
+}

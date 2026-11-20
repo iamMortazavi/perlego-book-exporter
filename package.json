@@ -1,0 +1,37 @@
+{
+  "name": "perlego-book-exporter",
+  "version": "4.1.0",
+  "description": "Fast, resumable Manifest V3 Chrome extension for exporting Perlego books to EPUB 3 (MathML, nested TOC, RTL), GitHub-Flavored Markdown, and standalone HTML5.",
+  "license": "MIT",
+  "author": "Mohammad Ali <https://github.com/iamMortazavi>",
+  "homepage": "https://github.com/iamMortazavi/perlego-book-exporter#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamMortazavi/perlego-book-exporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamMortazavi/perlego-book-exporter/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "manifest-v3",
+    "perlego",
+    "epub",
+    "epub3",
+    "markdown",
+    "html5",
+    "ebook",
+    "exporter",
+    "mathml",
+    "rtl"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/extension.test.mjs",
+    "verify": "npm run check && npm test",
+    "pack": "node scripts/pack.mjs"
+  }
+}
